@@ -1,8 +1,8 @@
-# COMPARING ALGORITHM - MAIN FILE_V2 - ARCHITECTONIC - </> by ShivaReddy.
+# COMPARING ALGORITHM - MAIN FILE_V4 - ARCHITECTONIC - </> by ShivaReddy.
 import pandas as pd
 
 
-######
+#####
 # PART 1 - (START) - GET THE DATA, & CONVERT IT INTO DICTIONARIES
 file_1 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV1.xlsm')
 file1_image = r''
@@ -74,9 +74,7 @@ all_sheets_data_frames(file_1, file_2, excel_sheet_number)
 # print(data1)
 # print(data2)
 # PART 1 - (END) - GET THE DATA, & CONVERT IT INTO DICTIONARIES
-######
-
-
+#####
 
 #####
 # PART 2 - (START) - COMPARING ALGORITHM
