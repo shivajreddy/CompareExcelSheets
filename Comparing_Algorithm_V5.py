@@ -1,19 +1,14 @@
-# COMPARING ALGORITHM - MAIN FILE_V4 - ARCHITECTONIC - </> by ShivaReddy.
+# COMPARING ALGORITHM - MAIN FILE_V2 - ARCHITECTONIC - </> by ShivaReddy.
+
 import pandas as pd
 
-
-#####
+######
 # PART 1 - (START) - GET THE DATA, & CONVERT IT INTO DICTIONARIES
-file_1 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV1.xlsm')
-file1_image = r''
-file_2 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV2.xlsm')
-file2_image = r''
-
-# def get_data_from_sheet(sheet1, sheet2, sheet3, sheet4, sheet5, sheet6, sheet7, sheet8, sheet9):
-# inputs, file locations- outputs, file paths and list of all sheet names
 # PART 1.1 - CHOOSE THE TWO FILES
-file_1_location = r''
-file_2_location = r''
+file_1 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV1.xlsm')
+file_2 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV2.xlsm')
+file1_image = r''
+file2_image = r''
 
 
 # PART 1.2 - GET ALL THE SHEET NAMES FROM THE EXCEL FILES
@@ -40,8 +35,7 @@ def create_data_frames(input_file_1, input_file_2, sheet_name):
     return f1_s1, f2_s1
 
 
-
-excel_sheet_number = 7
+# excel_sheet_number = 7
 
 
 def all_sheets_data_frames(input_file_1, input_file_2, excel_workbook_number):
@@ -52,35 +46,15 @@ def all_sheets_data_frames(input_file_1, input_file_2, excel_workbook_number):
     data_frames_for_2versions_single_sheet = create_data_frames(input_file_1, input_file_2, list_of_all_sheet_names[i])
     file1_data_frames.append(data_frames_for_2versions_single_sheet[0])
     file2_data_frames.append(data_frames_for_2versions_single_sheet[1])
-
-    # for i in list_of_all_sheet_names:
-    #     data_frames_for_2versions_single_sheet = create_data_frames(input_file_1, input_file_2, i)
-    #     file1_data_frames.append(data_frames_for_2versions_single_sheet[0])
-    #     file2_data_frames.append(data_frames_for_2versions_single_sheet[1])
-
     return file1_data_frames, file2_data_frames
 
-
-all_sheets_data_frames(file_1, file_2, excel_sheet_number)
-
-# [0][0] for the first file dataframe, [1][0] for the second file dataframe, second [0] is to remove empty outer list
-# print(all_sheets_data_frames(file_1, file_2)[1][0])
-# data1 = all_sheets_data_frames(file_1, file_2, excel_sheet_number)[0][0]
-# data2 = all_sheets_data_frames(file_1, file_2, excel_sheet_number)[1][0]
-
-# original_data1 = all_sheets_data_frames(file_1, file_2, excel_sheet_number)[0][0]
-# original_data2 = all_sheets_data_frames(file_1, file_2, excel_sheet_number)[1][0]
-
-# print(data1)
-# print(data2)
 # PART 1 - (END) - GET THE DATA, & CONVERT IT INTO DICTIONARIES
-#####
+######
+
 
 #####
 # PART 2 - (START) - COMPARING ALGORITHM
-
 # PART 2.0 - CREATE INPUTS AND OUTPUTS FOR PART 2
-# same_items = []
 new_data_2 = []
 
 
@@ -129,10 +103,7 @@ def compare_same_items(list_a, list_b, return_same_items_list):
 
 
 # PART 2.1.6 - COMPARING THE DATA SETS FOR SAME ITEMS
-# compare_same_items(data1, data2, same_items)
-
-
-# since item_b is not being removed from list_b, i should write a function to remove the items
+# Function to remove item_b from list_b, after it is used to compare
 def remove_same_items_from_data2(input_old_data2, input_new_data2):
     temp_data2 = input_old_data2
 
@@ -143,20 +114,7 @@ def remove_same_items_from_data2(input_old_data2, input_new_data2):
     return temp_data2
 
 
-# data2_with_no_same_items = remove_same_items_from_data2(data2, new_data_2)
-# data2 = data2_with_no_same_items
-
-# new_items = remove_same_items_from_data2(same_items, modified_items)
-
-
-
 # PART 2.2 - MODIFIED ITEMS
-# modified_items = []
-
-# total_columns = len(list(original_data1[0].keys()))
-# modified_indices = []
-
-
 # PART 2.2.0 - FUNCTION TO COMPARE VALUES OF TWO DICTIONARIES, NOTE INDICES, GROUP INTO SUB-LISTS
 def indices_of_modified(dict_a, dict_b, out_modified_indices, the_total_columns):
     for x in range(0, the_total_columns):
@@ -166,12 +124,6 @@ def indices_of_modified(dict_a, dict_b, out_modified_indices, the_total_columns)
         else:
             out_modified_indices.append(False)
     return out_modified_indices
-
-
-# def get_modified_indices(input_data_1, input_data_2):
-#     for p in input_data_1:
-#         for q in input_data_2:
-#             indices_of_modified(p, q)
 
 
 # PART 2.2.1 - EVERY DICTIONARY ITEM IN LIST_A VS. ONE DICTIONARY ITEM IN LIST_B
@@ -218,10 +170,6 @@ def compare_modified_items(list_a, list_b, return_modified_items_list, out_modif
     remove_dicts_from_list_type2(list_b)
 
 
-# PART 2.2.6 - COMPARING THE TWO DICTIONARY LISTS FOR MODIFIED ITEMS
-# compare_modified_items(data1, data2, modified_items, )
-
-
 # PART 2.3 - NEW ITEMS
 def remove_same_and_modified_items(input_same_items, input_modified_items, original_data_2_list):
     temp_combined_list = input_same_items + input_modified_items
@@ -234,48 +182,11 @@ def remove_same_and_modified_items(input_same_items, input_modified_items, origi
     return temp_original_list
 
 
-# new_items = remove_same_and_modified_items(same_items, modified_items, original_data2)
-
-
-# PART 2.4 - DELETED ITEMS
-# deleted_items = data1
-
-#####
-# PART 2 - (END) - COMPARING ALGORITHM
-
-
-#####
-# PART 3 - (START) - SENDING DATA TO EXCEL
-# OUTPUT IN TERMS OF LISTS
-
-
-# final_output_same = pd.DataFrame(same_items)
-# final_output_modified = pd.DataFrame(modified_items)
-# final_output_new = pd.DataFrame(new_items)
-# final_output_deleted = pd.DataFrame(data1)
-
-#
-# print("same items")
-# print(final_output_same)
-# print("modified items")
-# print(final_output_modified)
-# print("the indices of modified items alone")
-# output_modified_indices = [modified_indices[i:i + total_columns] for i in range(0, len(modified_indices), total_columns)]
-# print(output_modified_indices)
-# print("new items")
-# print(final_output_new)
-# print("Deleted items")
-# print(final_output_deleted)
-
-
-#####
-# PART 3 - (END) - SENDING DATA TO EXCEL
+# PART 2.4 - RUNNING THE ALGORITHM FOR ALL THE SHEETS
 total_number_of_sheets = len(file_1.sheet_names)
-# print("The total number of sheets  are ", total_number_of_sheets)
 
 
 def comparing_algorithm(excel_file_1, excel_file_2):
-    # Change the range of x from 0,2 to 0,total_number_of_sheets
     combined_output_same = []
     combined_output_modified = []
     combined_output_modified_indices = []
@@ -284,16 +195,13 @@ def comparing_algorithm(excel_file_1, excel_file_2):
 
 
     for x in range(0, total_number_of_sheets-1):
-        # print("doing this for sheet", x)
         data1 = all_sheets_data_frames(excel_file_1, excel_file_2, x)[0][0]
         data2 = all_sheets_data_frames(excel_file_1, excel_file_2, x)[1][0]
         original_data1 = all_sheets_data_frames(excel_file_1, excel_file_2, x)[0][0]
         original_data2 = all_sheets_data_frames(excel_file_1, excel_file_2, x)[1][0]
         number_of_columns = len(list(original_data1[0].keys()))
 
-
         same_items = []
-        # new_data_2 = []
         all_sheets_data_frames(excel_file_1, excel_file_2, x)
         compare_same_items(data1, data2, same_items)
         data2 = remove_same_items_from_data2(data2, new_data_2)
@@ -301,7 +209,6 @@ def comparing_algorithm(excel_file_1, excel_file_2):
         modified_items = []
         total_columns = len(list(original_data1[0].keys()))
         modified_indices = []
-
 
         compare_modified_items(data1, data2, modified_items, modified_indices, total_columns)
 
@@ -314,32 +221,24 @@ def comparing_algorithm(excel_file_1, excel_file_2):
         final_output_new = pd.DataFrame(new_items)
         final_output_deleted = pd.DataFrame(data1)
 
-        # print(combined_output_same.append(final_output_same))
-        # print(combined_output_modified.append(final_output_modified))
-        # print(combined_output_modified_indices.append(final_output_indices))
-        # print(combined_output_new.append(final_output_new))
-        # print(combined_output_deleted.append(final_output_deleted))
+        combined_output_same.append(final_output_same)
+        combined_output_modified.append(final_output_modified)
+        combined_output_modified_indices.append(new_modified_indices)
+        combined_output_new.append(final_output_new)
+        combined_output_deleted.append(final_output_deleted)
 
-        print("<------------>")
-        print("Same Items")
-        print(final_output_same)
-        print("---")
-        print("Modified Items", )
-        print(final_output_modified)
-        print("---")
-        print(" the modified indices total are ", len(final_output_indices))
-        # print(final_output_indices)
-        print(new_modified_indices)
-        print("---")
-        print(" New Items ")
-        print(final_output_new)
-        print("---")
-        print(" Deleted Items ")
-        print(final_output_deleted)
-        print("<------------>")
+    return combined_output_same, combined_output_modified, combined_output_modified_indices, combined_output_new, combined_output_deleted
 
 
-    # return combined_output_same, combined_output_modified, combined_output_modified_indices, combined_output_new, combined_output_deleted
-
-
+# comparing_algorithm(file_1, file_2)
 print(comparing_algorithm(file_1, file_2))
+
+#####
+# PART 2 - (END) - COMPARING ALGORITHM
+
+#####
+# PART 3 - (START) - SENDING DATA TO EXCEL
+
+
+#####
+# PART 3 - (END) - SENDING DATA TO EXCEL
