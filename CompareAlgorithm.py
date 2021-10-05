@@ -7,9 +7,12 @@ from openpyxl.styles import PatternFill
 
 #####
 # PART 1 - (START) - GET THE DATA, & CONVERT IT INTO DICTIONARIES
-file_1 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV1.xlsm')
-file_2 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV2.xlsm')
-r_file_path = r'C:\Users\sreddy\Desktop\t2.xlsm'
+# file_1 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV1.xlsm')
+# file_2 = pd.ExcelFile(r'C:\Users\sreddy\Desktop\testing\TestV2.xlsm')
+# r_file_path = r'C:\Users\sreddy\Desktop\t2.xlsm'
+file_1 = pd.ExcelFile(r'C:\Users\sreddy\OneDrive - Eagle Construction of VA\Automation Estimating Local\newtest.xlsm')
+file_2 = pd.ExcelFile(r'C:\Users\sreddy\OneDrive - Eagle Construction of VA\Automation Estimating Local\newtest2.xlsm')
+r_file_path = r'C:\Users\sreddy\OneDrive - Eagle Construction of VA\Automation Estimating Local\compare_test4.xlsm'
 
 
 # PART 1.1 - CHOOSE THE TWO FILES
@@ -240,7 +243,7 @@ def comparing_algorithm(excel_file_1, excel_file_2):
 
         # 'Same Item' Title writing
         rowindex = 3
-        ws.cell(row=rowindex, column=1).value = 'Same Items'
+        ws.cell(row=rowindex, column=2).value = 'Same Items'
 
         # 'Same Item' Title Coloring
         fill_pattern1 = PatternFill(patternType='solid', fgColor='BDD7EE')
@@ -258,7 +261,7 @@ def comparing_algorithm(excel_file_1, excel_file_2):
         # 'Modified Item' Title writing
         rowindex = rowindex +2
         offset1 = rowindex
-        ws.cell(row=rowindex, column=1).value = 'Modified'
+        ws.cell(row=rowindex, column=2).value = 'Modified Items'
 
         # 'Modified Item' Data writing
         for index, row in final_output_modified.iterrows():
@@ -293,7 +296,7 @@ def comparing_algorithm(excel_file_1, excel_file_2):
         # 'Added Item' Title writing
         rowindex = rowindex +2
         offset2 = rowindex
-        ws.cell(row=rowindex, column=1).value = 'Added'
+        ws.cell(row=rowindex, column=2).value = 'Added Items'
 
         # 'Added Item' Title Coloring
         fill_pattern1 = PatternFill(patternType='solid', fgColor='C6E0B4')
@@ -311,7 +314,7 @@ def comparing_algorithm(excel_file_1, excel_file_2):
         # 'Deleted Item' Title writing
         rowindex = rowindex +2
         offset3 = rowindex
-        ws.cell(row=rowindex, column=1).value = 'Deleted'
+        ws.cell(row=rowindex, column=2).value = 'Deleted Items'
 
         # 'Deleted Item' Title coloring
         fill_pattern1 = PatternFill(patternType='solid', fgColor='F8CBAD')
